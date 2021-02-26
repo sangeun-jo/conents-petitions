@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>콘텐츠 청원</title>
+</head>
+<body>
+    <form method="post" action="submitted" modelAttribute="petition">
+        <p>작성자:<span th:text="${writer}"> </span></p>
+        <lable>플랫폼(청원 보낼 곳)
+            <select name="platform">
+                <option value="Netflix">넷플릭스</option>
+                <option value="WATCHA">왓챠</option>
+                <option value="publisher">출판사</option>
+                <option value="etc">직접지정</option>
+            </select>
+        </lable> <br/>
+        <label>분류(카테고리):
+            <select name="category" size="1">
+                <option value="firm">영화</option>
+                <option value="drama">드라마</option>
+                <option value="animation">애니</option>
+                <option value="cartoon">만화</option>
+                <option value="novel">소설</option>
+                <option value="etc">기타</option>
+            </select>
+        </label> <br/>
+        <label>콘텐츠 제목: <input name="title" path="title"/></label> <br/>
+        <label>청원 이유: <textarea name="content"></textarea></label> <br/>
+        <input type="submit" value="청원하기" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Content Petitions</title>
+        <script type="text/javascript" src="/webjars/jquery/3.1.0/jquery.min.js" />
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css" />
+        <script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js" />
+    </head>
+
+    <h1>Contents Petitions</h1>
+
+    <button type="button" onclick="location.href='/petition/form.html'">청원하기</button>
+
+    <body>
+        <table class="table">
+            <tr>
+                <th>장르</th>
+                <th>제목</th>
+                <th>청원수</th>
+                <th>청원인</th>
+                <th>청원일</th>
+            </tr>
+            <tr th:each="pet : ${pet_list}">
+                <td th:text="${pet.CATEGORY}"></td>
+                <td th:text="${pet.TITLE}"></td>
+                <td th:text="${pet.AGREEMENT_COUNT}"></td>
+                <td th:text="${pet.WRITER}"></td>
+                <td th:text="${pet.WDATE}"></td>
+            </tr>
+        </table>
+    </body>
+</html>

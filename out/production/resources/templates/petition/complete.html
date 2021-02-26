@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>청원 완료</title>
+</head>
+<body>
+    <h1>청원이 완료되었습니다.</h1>
+    <p>
+        [<span th:text="${platform}"></span>]
+        <span th:text="${title}"></span> 청원
+        by <span th:text="${writer}"></span>
+    </p>
+    <p></p><button>공유하기</button>
+</body>
+</html>

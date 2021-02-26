@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.mapper.petitionMapper">
+
+    <insert id="insertPetition" parameterType="sej.petitions.model.Petition">
+        <selectKey resultType="String" order="BEFORE" keyProperty="petitionId">
+            SELECT
+            CONCAT('PE', DATE_FORMAT(NOW(), '%y%m%d%h%i%s')) AS PESEQ
+        </selectKey>
+
+        INSERT INTO PETITION_LIST
+        (PETITION_ID ,PLATFORM, CATEGORY, TITLE, CONTENT, WRITER, WDATE)
+        values(#{petitionId},#{platform}, #{category}, #{title}, #{content}, #{writer}, now())
+
+    </insert>
+
+    <select id="selectPetitionListAll" resultType="hashmap">
+        <![CDATA[SELECT CATEGORY, TITLE, AGREEMENT_COUNT, WRITER, WDATE FROM PETITION_LIST]]>
+    </select>
+
+</mapper>
