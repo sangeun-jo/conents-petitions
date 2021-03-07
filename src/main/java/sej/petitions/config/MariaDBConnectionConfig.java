@@ -31,7 +31,8 @@ public class MariaDBConnectionConfig {
         hikariConfig.setPassword(dbPassword);
 
         hikariConfig.addDataSourceProperty("url", dbUrl);
-        hikariConfig.setDataSourceClassName(dbClassName);
+        hikariConfig.setDriverClassName(dbClassName);
+        hikariConfig.setJdbcUrl(dbUrl);
         hikariConfig.setLeakDetectionThreshold(2000);
         hikariConfig.setPoolName("petitionDBpool");
 
